@@ -3,7 +3,15 @@ import java.util.Scanner;
 class boyer_moore {
 
     public static void main(String[] args){
-        System.out.println(index_of("DASDMASMDOPAMDOMAODMAMDOMDINGDADSDADOWO".toCharArray(), "DING".toCharArray()));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an input string: ");
+        String input_string = scanner.next();
+        System.out.println("Enter a pattern: ");
+        String target_string = scanner.next();
+        //System.out.println(String.format(""));
+        int index = index_of(input_string.toCharArray(), target_string.toCharArray());
+        String result = index != -1 ? "Found At %s" : "%s Not Found";
+        System.out.println(String.format(result, index));
     }
 
     public static int index_of(char[] input_string, char[] target_string){
