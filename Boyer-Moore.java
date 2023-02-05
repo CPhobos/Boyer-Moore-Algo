@@ -3,6 +3,7 @@ import java.util.Scanner;
 class boyer_moore {
 
     public static void main(String[] args){
+        System.out.println(index_of("DASDMASMDOPAMDOMAODMAMDOMDINGDADSDADOWO".toCharArray(), "DING".toCharArray()));
     }
 
     public static int index_of(char[] input_string, char[] target_string){
@@ -11,8 +12,8 @@ class boyer_moore {
         }
         int char_table[] = construct_char_table(target_string);
         int offet_table[] = construct_offset_table(target_string);
-        for(int i = target_string.length -1, j; i < input_string.length;){
-            for(j = target_string.length - 1; i < input_string.length; --i){
+        for(int i = target_string.length - 1, j; i < input_string.length;){
+            for(j = target_string.length - 1; target_string[j] == input_string[i]; --i, --j){ 
                 if(j == 0){
                     return i;
                 }
